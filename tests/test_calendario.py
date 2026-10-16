@@ -33,3 +33,22 @@ def test_dias_ate_hoje():
 def test_dias_ate_rejeita_data_passada():
     with pytest.raises(ValueError):
         dias_ate(date(2026, 6, 14), date(2026, 6, 15))
+
+
+def test_dias_desde_data_passada():
+    from calendario import dias_desde
+
+    assert dias_desde(date(2026, 6, 10), date(2026, 6, 15)) == 5
+
+
+def test_dias_desde_hoje():
+    from calendario import dias_desde
+
+    assert dias_desde(date(2026, 6, 15), date(2026, 6, 15)) == 0
+
+
+def test_dias_desde_rejeita_data_futura():
+    from calendario import dias_desde
+
+    with pytest.raises(ValueError):
+        dias_desde(date(2026, 6, 16), date(2026, 6, 15))

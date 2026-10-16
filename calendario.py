@@ -23,3 +23,11 @@ def dias_ate(data_futura: date, hoje: date | None = None) -> int:
     if data_futura < hoje:
         raise ValueError("A data informada deve ser hoje ou uma data futura.")
     return (data_futura - hoje).days
+
+
+def dias_desde(data_passada: date, hoje: date | None = None) -> int:
+    """Retorna quantos dias se passaram desde uma data passada (hoje retorna zero)."""
+    hoje = hoje or date.today()
+    if data_passada > hoje:
+        raise ValueError("A data informada deve ser hoje ou uma data passada.")
+    return (hoje - data_passada).days
