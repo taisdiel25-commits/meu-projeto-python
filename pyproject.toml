@@ -1,0 +1,11 @@
+[project]
+name = "meu-projeto-calendario"
+version = "1.0.0"
+description = "Cálculos de idade e intervalos entre datas"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
